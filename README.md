@@ -7,6 +7,7 @@
 ​		2、针对每个entry进行单独的跨域代理配置，便于维护
 
 <h2 align="center">安装</h2>
+
 ```bash
 npm i --save-dev service-proxy-middleware
 ```
@@ -16,6 +17,7 @@ yarn add --dev service-proxy-middleware
 ```
 
 <h2 align="center">配置</h2>
+
 | 名称          | 类型     | 默认值        | 描述                                                         |
 | ------------- | -------- | ------------- | ------------------------------------------------------------ |
 | filename      | {String} | proxyRules.js | 代理规则配置文件名称                                         |
@@ -24,6 +26,7 @@ yarn add --dev service-proxy-middleware
 | server        | {Object} | undefined     | webpack-dev-server对象，用于操作浏览器刷新，如果不传，代理配置文件发生改变时，不会触发浏览器刷新 |
 
 <h2 align="center">使用</h2>
+
 `service-proxy-middleware`目前支持三种类型的entry，分别是String、Array、Object，我针对这三种类型写了三个[example]()
 
 <h3>String类型entry</h3>
