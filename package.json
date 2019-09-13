@@ -1,0 +1,44 @@
+{
+  "name": "service-proxy-middleware",
+  "version": "0.0.1",
+  "description": "This is a real-time proxy forwarding middleware that allows you to configure the interface proxy forwarding you need without restarting the service and seeing immediate results",
+  "main": "index.js",
+  "scripts": {
+    "demo01": "webpack-dev-server --config example/demo01/webpack.config.js",
+    "demo02": "webpack-dev-server --config example/demo02/webpack.config.js",
+    "demo03": "webpack-dev-server --config example/demo03/webpack.config.js",
+    "build-demo01": "webpack --config example/demo01/webpack.config.js",
+    "build-demo02": "webpack --config example/demo02/webpack.config.js",
+    "build-demo03": "webpack --config example/demo03/webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jameswain/service-proxy-middleware.git"
+  },
+  "keywords": [
+    "proxy",
+    "middleware",
+    "express",
+    "webpack"
+  ],
+  "author": "Jameswain",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jameswain/service-proxy-middleware/issues"
+  },
+  "homepage": "https://github.com/Jameswain/service-proxy-middleware#readme",
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "chokidar": "^3.0.2",
+    "cli-table3": "^0.5.1",
+    "http-proxy-middleware": "^0.19.1",
+    "log-update": "^3.3.0"
+  },
+  "devDependencies": {
+    "html-webpack-plugin": "^3.2.0",
+    "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.7",
+    "webpack-dev-server": "^3.8.0",
+    "axios": "^0.19.0"
+  }
+}
