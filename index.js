@@ -17,7 +17,8 @@ module.exports = (options) => {
 	return (req, res, next) => {
 		if (!req.headers.referer) return next();
 		// 请求来源页面
-		const referer = new url.URL(req.headers.referer).pathname || '/index.html';
+		let referer = new url.URL(req.headers.referer).pathname;
+		referer = referer.length <= 1 ? '/index.html' : referer;
 		const proxyRule = options.mapProxyRules[referer];
 		for (let filename in proxyRule) {
 			const arrProxyRule = proxyRule[filename];

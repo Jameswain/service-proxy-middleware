@@ -2,8 +2,8 @@ module.exports = [
 	{
 		enable: true,
 		context: [
-			'/live/*',
+			'/mojiweather/**'
 		],
-		target: 'https://baseapi.busi.inke.cn',
+		target: 'http://www.moji.com'
 	}
 ]
