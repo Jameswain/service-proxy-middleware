@@ -22,7 +22,12 @@ module.exports = {
 	],
 	devServer: {
 		before(app, server) {
-			app.use(serviceProxyMiddleware({ webpackConfig: module.exports, server }));
+			app.use(serviceProxyMiddleware({
+				// webpack配置
+				webpackConfig: module.exports,
+				// webpack-dev-server对象
+				server
+			}));
 		}
 	}
 }

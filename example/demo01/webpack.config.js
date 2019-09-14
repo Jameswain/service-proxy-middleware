@@ -19,7 +19,14 @@ module.exports = {
 	],
 	devServer: {
 		before(app, server) {
-			app.use(serviceProxyMiddleware({ webpackConfig: module.exports, server }));
+			app.use(serviceProxyMiddleware({
+				webpackConfig: module.exports,
+				server,
+				// 公共代理配置文件
+				commonProxys: [
+					path.resolve(__dirname, '..', 'other', 'proxyRules.js')
+				]
+			}));
 		}
 	}
 }

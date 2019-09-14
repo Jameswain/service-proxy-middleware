@@ -6,7 +6,8 @@
 
 ​		2、针对每个entry进行单独的跨域代理配置，便于维护
 
-<h2 align="center">安装</h2>
+## 安装
+
 ```bash
 npm i --save-dev service-proxy-middleware
 ```
@@ -15,18 +16,22 @@ npm i --save-dev service-proxy-middleware
 yarn add --dev service-proxy-middleware
 ```
 
-<h2 align="center">配置</h2>
+## 配置
+
 | 名称          | 类型     | 默认值        | 描述                                                         |
 | ------------- | -------- | ------------- | ------------------------------------------------------------ |
 | filename      | {String} | proxyRules.js | 代理规则配置文件名称                                         |
 | publicPath    | {String} | /             | webpack.devServer.publicPath 属性                            |
 | webpackConfig | {Object} | 必传参数      | webpack配置                                                  |
 | server        | {Object} | undefined     | webpack-dev-server对象，用于操作浏览器刷新，如果不传，代理配置文件发生改变时，不会触发浏览器刷新 |
+| commonProxys  | {Array}  | []            | 公共代理配置文件                                             |
 
-<h2 align="center">使用</h2>
+## 使用
+
 `service-proxy-middleware`目前支持三种类型的entry，分别是String、Array、Object，我针对这三种类型写了三个[example](https://github.com/Jameswain/service-proxy-middleware/tree/master/example)
 
-<h3>String类型entry</h3>
+### String类型entry
+
 **[webpack.config.js](https://github.com/Jameswain/service-proxy-middleware/blob/master/example/demo01/webpack.config.js)**
 
 ```javascript
@@ -51,7 +56,14 @@ module.exports = {
 	],
 	devServer: {
 		before(app, server) {
-			app.use(serviceProxyMiddleware({ webpackConfig: module.exports, server }));
+			app.use(serviceProxyMiddleware({
+				webpackConfig: module.exports,
+				server,
+				// 公共代理配置文件
+				commonProxys: [
+					path.resolve(__dirname, '..', 'other', 'proxyRules.js')
+				]
+			}));
 		}
 	}
 }
@@ -142,7 +154,8 @@ http://localhost:8080
 
 
 
-<h3>Array类型entry</h3>
+### Array类型entry
+
 ****
 
 **[webpack.config.js](https://github.com/Jameswain/service-proxy-middleware/blob/master/example/demo02/webpack.config.js)**
@@ -259,7 +272,8 @@ http://localhost:8080
 
 
 
-<h3>Object类型entry</h3>
+### Object类型entry
+
 **[webpack.config.js](https://github.com/Jameswain/service-proxy-middleware/blob/master/example/demo03/webpack.config.js)**
 
 ```javascript
@@ -412,4 +426,3 @@ http://localhost:8080/react/app.html
 ![](https://raw.githubusercontent.com/Jameswain/IMG/master/20190914075926.jpg)
 
 ![](https://raw.githubusercontent.com/Jameswain/IMG/master/20190914075953.jpg)
-

@@ -12,12 +12,5 @@ module.exports = [
 			'/passport'
 		],
 		target: 'http://news.baidu.com'
-	},
-	{
-		enable: true,
-		context: [
-			'/mojiweather/**'
-		],
-		target: 'http://www.moji.com'
 	}
 ]

@@ -4,6 +4,8 @@ const utils = require('./lib/utils');
 module.exports = (options) => {
 	// 初始化配置
 	options.filename = options.filename || 'proxyRules.js';
+	// 公共代理配置文件
+	options.commonProxys = options.commonProxys || [];
 	// webpack.devServer.publicPath
 	options.publicPath = options.publicPath || '/';
 	// 必须要有webpack配置
