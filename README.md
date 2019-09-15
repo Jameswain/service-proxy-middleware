@@ -25,6 +25,7 @@ yarn add --dev service-proxy-middleware
 | webpackConfig | {Object} | 必传参数      | webpack配置                                                  |
 | server        | {Object} | undefined     | webpack-dev-server对象，用于操作浏览器刷新，如果不传，代理配置文件发生改变时，不会触发浏览器刷新 |
 | commonProxys  | {Array}  | []            | 公共代理配置文件                                             |
+| realtimeLog  | {Boolean}  | false        | 实时配置日志输出，默认为false，如果为true，则代理配置文件发生改变时，会实时更新终端输出的代理配置 |
 
 ## 使用
 
