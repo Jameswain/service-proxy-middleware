@@ -1,5 +1,7 @@
 const url = require('url');
 const utils = require('./lib/utils');
+const os = require('os');
+const path = require('path');
 
 module.exports = (options) => {
 	// 初始化配置
@@ -13,7 +15,7 @@ module.exports = (options) => {
 	options.realtimeLog = options.realtimeLog || false;
 	// webpack配置，必传参数
 	if (!options.webpackConfig) throw new Error('请传入webpack配置');
-	
+
 	// 获取entry与代理配置文件路径的映射
 	options.mapProxyFiles = utils.getEntryWithProxyMap(options);
 	// 读取代理配置文件内容
@@ -24,7 +26,7 @@ module.exports = (options) => {
 		if (!req.headers.referer) return next();
 		// 请求来源页面
 		let referer = new url.URL(req.headers.referer).pathname;
-		referer = referer.length <= 1 ? '/index.html' : referer;
+		referer = referer.length <= 1 ? `${path.sep}index.html` : referer.split('/').join(path.sep);
 		const proxyRule = options.mapProxyRules[referer];
 		for (let filename in proxyRule) {
 			const arrProxyRule = proxyRule[filename];
