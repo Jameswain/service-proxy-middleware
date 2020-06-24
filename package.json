@@ -1,6 +1,6 @@
 {
   "name": "service-proxy-middleware",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "This is a real-time proxy forwarding middleware that allows you to configure the interface proxy forwarding you need without restarting the service and seeing immediate results",
   "main": "index.js",
   "scripts": {
