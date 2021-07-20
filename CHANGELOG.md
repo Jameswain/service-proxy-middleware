@@ -1,3 +1,6 @@
+### v1.0.6
+- 🔨 修复BrowserRouter无法匹配bug
+
 ### v1.0.5
 - 🔨 修复match拼接少/问题
 
