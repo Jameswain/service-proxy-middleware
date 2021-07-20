@@ -27,7 +27,8 @@ module.exports = (options) => {
 		// 请求来源页面
 		let referer = new url.URL(req.headers.referer).pathname;
 		referer = referer.length <= 1 ? `${path.sep}index.html` : referer.split('/').join(path.sep);
-		const proxyRule = options.mapProxyRules[referer];
+		let proxyRule = options.mapProxyRules[referer];  // 使用BrowserRouter时会匹配不到！
+    proxyRule = proxyRule ? proxyRule : Object.values(options.mapProxyRules).reduce((mapRules, rule) => ({ ...mapRules, ...rule }), {})
 		for (let filename in proxyRule) {
 			const arrProxyRule = proxyRule[filename];
 			for (let i = 0; i < arrProxyRule.length; i++) {
